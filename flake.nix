@@ -47,5 +47,5 @@
     };
     buildInputs = [ pkgs.haskellPackages.cabal-install ];
     defaultPackage = pkgs.haskellPackages.taffybar;
-  }) // { inherit overlay overlays; } ;
+  }) // { inherit overlay; } // { overlays = { overlay = final: prev: nixpkgs.lib.composeManyExtensions overlays; }; };
 }
